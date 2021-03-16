@@ -1,0 +1,63 @@
+name: Posts
+icon: ""
+description: Post content management
+author: Ahmad Oriza (MeinCMS Team)
+author_url: ""
+db_version: 0
+custom_url: admin/post/index/all/post
+show_admin_menu: true
+menu_position: 30
+parent_menu: "20:Contents:file"
+sub_menu:
+  30:
+    submodule: post_category
+    url: admin/post/category
+    icon: thumb-tack
+    caption: Categories
+    menu_permission: post/category
+  40:
+    submodule: post_tags
+    url: admin/post/tags
+    icon: tags
+    caption: Tags
+    menu_permission: post/tags
+setting: 
+  posttype_config:
+    field: posttype_config
+    label: Post Type Config
+    form: textarea
+    default: |
+        page:
+            label: Pages
+            entry: mein_post_page
+        event:
+            label: Events
+            entry: mein_post_event
+privileges:
+    - post
+    - post/index/all/:any
+    - post/index/trash
+    - post/add
+    - post/insert
+    - post/edit/:num
+    - post/update/:num
+    - post/search
+    - post/post/draft
+    - post/publish
+    - post/trash
+    - post/restore
+    - post/delete
+    - post/category
+    - post/category/add/:any
+    - post/category/insert
+    - post/category/edit/:num
+    - post/category/update/:num
+    - post/category/search
+    - post/category/delete
+    - post/tags
+    - post/tags/add
+    - post/tags/insert
+    - post/tags/edit
+    - post/tags/update
+    - post/tags/search
+    - post/tags/delete

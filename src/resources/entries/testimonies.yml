@@ -1,0 +1,51 @@
+name: Testimonies
+description: The Testimonies
+icon: flash
+table: testimonies
+show_on_table: [name, email, rate, content, instansi]
+show_admin_menu: false
+parent_menu: "30:Entries:list-alt"
+menu_position: 60
+fields:
+  user_id:
+    field: user_id
+    label: User
+    form: text
+    datalist: true
+    rules: required
+  name:
+    field: name
+    label: Name
+    form: text
+    datalist: true
+    rules: required
+  email:
+    field: email
+    label: Email
+    form: text
+    datalist: true
+    rules: required
+  picture:
+    field: picture
+    label: Picture
+    form: text
+    datalist: true
+    rules: required
+  rate:
+    field: rate
+    label: Rate
+    form: number
+    datalist: true
+    rules: required
+  content:
+    field: content
+    label: Content
+    form: textarea
+    datalist: true
+    rules: required
+  instansi:
+    field: instansi
+    label: Instansi
+    form: text
+    datalist: true
+    rules: required

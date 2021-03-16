@@ -1,0 +1,18 @@
+{
+  "background_color": "#6dc7c5",
+  "display": "standalone",
+  "orientation":"portrait",
+  "theme_color": "#6dc7c5",           
+  "short_name": "CodePolitan",
+  "name": "CodePolitan",
+  "description": "Platform Belajar Pemrograman",
+  "lang": "id-ID",
+  "icons": [
+    {
+      "src": "sites/codepolitan/themes/belajarcoding/assets/img/favicon/android-icon-192x192.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/"
+}

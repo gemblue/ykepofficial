@@ -1,0 +1,33 @@
+name: Dashboard
+icon: dashboard
+description: Dashboard admin menu
+author: Ahmad Oriza (MeinCMS Team)
+author_url: null 
+db_version: 0
+custom_url: null
+show_admin_menu: true
+menu_position: 10
+parent_menu: null
+sub_menu:
+  10:
+    submodule: dashboard
+    url: admin/dashboard
+    icon: dashboard
+    caption: Dashboard
+    menu_permission: dashboard
+  20:
+    submodule: dashboard_recent_login
+    url: admin/dashboard/recent_login
+    icon: users
+    caption: Recent Login
+    menu_permission: dashboard/recent_login
+setting:
+  maintenance_mode:
+    field: maintenance_mode
+    label: Enable Maintenance Mode
+    desc: show under maintenance page, <code>on</code> or <code>off</code> 
+    form: text
+    default: on
+privileges:
+  - dashboard
+  - dashboard/recent_login

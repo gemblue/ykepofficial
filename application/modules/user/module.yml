@@ -1,0 +1,56 @@
+name: Users
+icon: users
+description: User management
+author: Ahmad Oriza (MeinCMS Team)
+author_url: null
+db_version: 0
+custom_url: null
+show_admin_menu: true
+menu_position: 5
+parent_menu: "90:Configurations:cog"
+sub_menu:
+  10:
+    submodule: user
+    url: admin/user
+    icon: user
+    caption: Users
+    menu_permission: user
+  20:
+    submodule: user_role
+    url: admin/user/role
+    icon: users
+    caption: Roles
+    menu_permission: user/role
+setting: 
+  confirmation_type:
+    field: confirmation_type
+    label: Account Confirmation Type
+    desc: How new registrar confirm activation (<code>link</code> = link activation, <code>otp</code> = one time password)
+    form: text
+    default: link
+  use_single_login:
+    field: use_single_login
+    label: Use Single Login
+    desc: Allow user to login only in one device
+    default: yes
+    form: text
+privileges:
+  - user
+  - user/edit/:num
+  - user/update
+  - user/activate/:num
+  - user/block/:num
+  - user/search/:any
+  - user/checkUser/:any
+  - user/add
+  - user/insert
+  - user/delete/:num
+  - user/purge/:num
+  - user/role
+  - user/role/add
+  - user/role/edit/:num
+  - user/role/insert
+  - user/role/update/:num
+  - user/role/delete/:num
+  - user/role/privileges/:num
+  - user/role/update_role_privileges

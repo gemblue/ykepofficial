@@ -1,0 +1,5 @@
+.section-hover {
+	-webkit-box-shadow: rgba(173, 73, 14, 0.2) 0px 0px 10px 5px inset;
+	-moz-box-shadow: rgba(173, 73, 14, 0.2) 0px 0px 10px 5px inset;
+	box-shadow: rgba(173, 73, 14, 0.2) 0px 0px 10px 5px inset;
+}

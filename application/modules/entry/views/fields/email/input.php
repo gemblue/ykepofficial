@@ -1,0 +1,1 @@
+<input id="<?php echo $config['field'];?>" type="email" name="<?php echo $config['field'];?>" value="<?php echo $value;?>" class="form-control" placeholder="<?php echo $config['placeholder'] ?? '';?>"/>

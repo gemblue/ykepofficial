@@ -1,0 +1,10 @@
+name: Documentation
+icon: null
+description: Documentation viewer
+author: Toni Haryanto (MeinCMS Team)
+author_url: null
+db_version: 0
+custom_url: null
+show_admin_menu: false
+menu_position: null
+parent_menu: null

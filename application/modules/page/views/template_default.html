@@ -1,0 +1,63 @@
+{layout 'layouts/basic.html'}
+
+{block content}
+<style>
+    p { font-size: 18px; }
+    img { max-width: 100%; }
+</style>
+<!-- CONTENT -->
+<section class="my-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8">
+                <article>
+                    <div class="article__title text-center">
+                        <h1 class="type--bold">{$page_title}</h1> 
+                        <span>Ditulis oleh <a href="{$site_url}coder/{$username}">{$name}</a>, 
+                            pada tanggal {strftime("%d %B %Y", strtotime($published_at))} 
+                            {*
+                            {if $category->slug ?? null}
+                            dalam kategori</span> <span><a href="{$site_url}category/{$category->slug}">{$category->name}</a></span> 
+                            {/if}
+                            *}
+                    </div>
+                    <div class="article__body"> 
+                    	<div class="my-5 pb-3 text-center">
+                            {if $embed_video}
+                            <iframe src="https://www.youtube.com/embed/{$embed_video}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            {else}
+                    		<img alt="{$title}" src="{$thumbnail}" class="full-width">
+                            {/if}
+                    	</div>
+
+                        {($content_type == 'markdown' ? parsedown($content) : $content)|noescape}
+
+                        <!-- <div class="mt-1 tags-wrapper"> 
+                            <hr>
+                            {foreach $tags as $tag}
+                                <a href="{$site_url}tag/{$tag['slug']}">{$tag['name']}</a>
+                            {/foreach}
+                        </div> -->
+
+                    </div>
+                    <hr>
+                    <!-- <div class="article__share text-center">
+                        <a class="btn bg--facebook btn--icon btn-share social-facebook" href="#" text="{$title}" url="{$site_url}{$slug}" social="facebook"> 
+                        	<span class="btn__text"><i class="socicon socicon-facebook"></i>
+							Share on Facebook
+							</span> 
+						</a>
+                        <a class="btn bg--twitter btn--icon btn-share social-twitter" href="#" text="{$title}" url="{$site_url}{$slug}" social="twitter"> 
+                        	<span class="btn__text"><i class="socicon socicon-twitter"></i>
+							Share on Twitter
+							</span> 
+                        </a>
+                    </div> -->
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: CONTENT -->
+
+{/block}

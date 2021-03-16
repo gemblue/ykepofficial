@@ -1,0 +1,37 @@
+name: Modules
+icon: code
+description: Development modules
+author: Ahmad Oriza (MeinCMS Team)
+author_url: null
+db_version: 0
+custom_url: admin/development/migration
+show_admin_menu: true
+menu_position: 10
+parent_menu: "110:Development:code"
+sub_menu:
+  10:
+    submodule: migration
+    url: admin/development/migration
+    icon: cog
+    caption: Migration
+    menu_permission: development/migration
+  20:
+    submodule: seed
+    url: admin/development/seed
+    icon: cog
+    caption: Seed
+    menu_permission: development/seed
+  30:
+    submodule: scaffold
+    url: admin/development/scaffold
+    icon: building
+    caption: CRUD Scaffold
+    menu_permission: development/scaffold
+privileges:
+  - development/migration
+  - development/migration/generate
+  - development/migration/migrate
+  - development/migration/migrateAll
+  - development/migration/enable
+  - development/migration/disable
+  - development/scaffold

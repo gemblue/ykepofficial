@@ -1,0 +1,28 @@
+name: My Module Name
+icon: list
+description: Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+author: Your Name
+author_url: null        # your web url as author
+required_db: true       # set to true if you use database library
+db_version: 0
+custom_url: null        # by default url will set admin/moduleslug
+show_admin_menu: true   # set false if it has no admin menu  
+menu_position: 100      # menu order in admin sidebar
+parent_menu: null       # i.e. "80:Parent Menu Caption:icon"
+custom_menu: null       # custom menu structure, required parent_menu to be set
+sub_menu: null       # submenu structure
+settings: null       # settings structure
+
+# Custom Menu Example
+#
+# custom_menu:
+#   10:
+#     module: utilites
+#     url: admin/utilites/migration
+#     icon: heart
+#     caption: Migration
+#   20:
+#     module: utilites
+#     url: admin/utilites/export
+#     icon: plus
+#     caption: Export Database

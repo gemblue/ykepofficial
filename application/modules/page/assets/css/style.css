@@ -1,0 +1,327 @@
+/*
+    DEMO STYLE
+*/
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+#sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -249px;
+    height: 100vh;
+    z-index: 999;
+    background: #eee;
+    color: #555;
+    transition: all 0.3s;
+    overflow-y: scroll;
+    box-shadow: 3px 0 3px rgba(0, 0, 0, 0.2);
+}
+
+#sidebar.active {
+    left: 0;
+}
+
+#sidebar .blocklist {
+    padding: 10px;
+}
+#sidebar .blocklist li {
+    background-color: rgba(255,255,255,.5);
+    margin-bottom: 2px;
+    /*position: relative;*/
+}
+#sidebar .blocklist h4 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+#sidebar .blocklist li label {
+    font-weight: normal;
+    margin: 0;
+    padding: 3px 10px;
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+}
+#sidebar .blocklist li .block-option {
+    text-align: right;
+    display: inline-block;
+    vertical-align: top;
+    width: 49%;
+    padding-right: 5px;
+}
+#sidebar .blocklist li .block-option a {
+    padding: 3px;
+    display: inline-block;
+}
+#sidebar .blocklist li .block-option a:hover {
+    background-color: transparent;
+}
+#sidebar .blocklist li .block-option a.remove:hover {
+    color: red;
+}
+body.dragging, body.dragging * {
+  cursor: move !important;
+}
+
+.dragged {
+  position: absolute;
+  opacity: 0.5;
+  z-index: 2000;
+}
+ul.sortable li.placeholder {
+  position: relative;
+  /** More li styles **/
+}
+ul.sortable li.placeholder:before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  margin-top: -5px;
+  left: -5px;
+  top: -4px;
+  border: 5px solid transparent;
+  border-left-color: red;
+  border-right: none;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255,255,255,0.7);
+    z-index: 998;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #6d7fcc;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    font-size: 1em;
+    margin: 0;
+}
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.subsidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -249px;
+    height: 100vh;
+    z-index: 999;
+    background: #fafafa;
+    color: #555;
+    transition: all 0.3s;
+    overflow-y: scroll;
+}
+.subsidebar.active {
+    left: 0;
+}
+.subsidebar .template-list {
+    width: 100%;
+    height: 100%;
+}
+.subsidebar .subsidebar-header a {
+    display: inline-block;
+    width: 20%;
+    vertical-align: top;
+}
+.subsidebar .subsidebar-header p {
+    display: inline-block;
+    width: 78%;
+    padding: 0 10px;
+    vertical-align: top;
+}
+
+.grid .grid-item {
+    width: 100%;
+    min-height: 80px;
+    background-color: #fff;
+    margin-bottom: 5px;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#content iframe {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+/* Section Tool */
+.section-editor {
+    width: 50%;
+    right: -684px;
+    position: fixed;
+    height: 100%;
+    z-index: 1000;
+    background-color: #666;
+    overflow: auto;
+    padding: 45px 5px 5px;
+    transition: all 0.3s;
+
+    -webkit-box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 5px 3px;
+    -moz-box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 5px 3px;
+    box-shadow:rgba(0, 0, 0, 0.3) 0px 0px 5px 3px;
+}
+.section-editor .editor-action {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #666;
+    padding: 5px 5px 0;
+    z-index: 100;
+    width: 100%;
+}
+.section-tool {
+    position: absolute;
+    right: 15px;
+
+}
+.section-tool .btn {
+    border-radius: 0;
+}
+
+#ace-editor {
+    font-size: 16px;
+    height: 100%;
+/*    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;*/
+}

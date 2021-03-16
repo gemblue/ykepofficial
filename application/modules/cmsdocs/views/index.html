@@ -1,0 +1,58 @@
+{layout 'layouts/basic_simple.html'}
+
+{block content}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/themes/prism-solarizedlight.min.css" rel="stylesheet" />
+<style>
+	h2 {margin-top: 40px;}
+	table {margin-bottom: 15px;}
+	table th, table td {border:1px solid #aaa; line-height: 18px; padding: 5px;}
+	ol {padding-left: 10px;}
+	ol li:not(:last-child) {margin-bottom: 0;}
+</style>
+
+<div class="container mt-3 mb-5">
+<h2 class="border-bottom mb-5">Dokumentasi MeinCMS</h2>
+	<div class="row justify-content-center">
+		<div class="col-md-3">
+			{foreach h,i in docs}
+				<strong>{h}</strong>
+				<ul class="list-unstyled mb-3">
+					{foreach m,n in i}
+						<li>
+							<a href="{$site_url}cmsdocs/{h}/{m}">{n.caption}</a>
+							{if n.children}
+								<ul class="list-unstyled ml-3">
+									{foreach b,c in n.children}
+										<li>
+											<a href="{$site_url}cmsdocs/{h}/{m}/{b}">{c.caption}</a>
+										</li>
+									{/foreach}
+								</ul>
+							{/if}
+						</li>
+					{/foreach}
+				</ul>
+			{/foreach}
+		</div>
+		<div class="col-md-7" id="the-content">
+			{content}
+		</div>
+	</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-core.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/plugins/autoloader/prism-autoloader.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.1/components/prism-php.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
+<script>
+$(function(){
+	showdown.setFlavor('github');
+	var converter = new showdown.Converter();
+	converter.setFlavor('github');
+    var text = $('#the-content').text();
+    var html = converter.makeHtml(text);
+    $('#the-content').html(html);
+    Prism.highlightAll();
+})
+</script>
+{/block}

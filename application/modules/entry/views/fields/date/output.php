@@ -1,0 +1,1 @@
+<?= strftime("%d %B %Y", strtotime($result[$config['field']])); ?>

@@ -1,0 +1,30 @@
+name: Comment
+icon: comment
+description: Comment module for Mein CMS
+author: Oriza
+author_url: https://github.com/gemblue
+db_version: 1
+custom_url: null
+show_admin_menu: true
+menu_position: 40
+parent_menu: "20:Contents:file"
+sub_menu:
+  10:
+    submodule: comment
+    url: admin/comment
+    icon: comment
+    caption: Latest Comment
+    menu_permission: comment
+  20:
+    submodule: comment_jailed
+    url: admin/comment/jailed
+    icon: users
+    caption: Jailed User
+    menu_permission: comment/jailed
+privileges:
+  - comment
+  - comment/jailed
+  - comment/set_free
+  - comment/jail
+  - comment/update
+  - comment/remove

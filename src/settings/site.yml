@@ -1,0 +1,47 @@
+name: Site
+setting:
+  site_title:
+    field: site_title
+    label: Website Title
+    form: text
+    default: MeinCMS
+  site_desc:
+    field: site_desc
+    label: Website Description
+    form: textarea
+  site_logo:
+    field: site_logo
+    label: Site Logo
+    form: image
+  site_logo_small:
+    field: site_logo_small
+    label: Site Logo Small
+    form: image
+  phone:
+    field: phone
+    label: Site Phone
+    form: text
+  email:
+    field: email
+    label: Site Email
+    form: text
+  maps:
+    field: maps
+    label: Google Maps
+    form: textarea
+  ga:
+    field: ga
+    label: Google Analytics
+    form: textarea
+  address:
+    field: address
+    label: Site Address
+    form: textarea
+  enable_registration:
+    field: enable_registration
+    label: Enable Public Registration
+    form: dropdown
+    default: on
+    options:
+      on: On
+      off: Off

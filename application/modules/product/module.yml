@@ -1,0 +1,44 @@
+name: Products
+icon: gift
+description: Product and Midtrans Payment Gateway
+author: Toni Haryanto
+author_url: https://toharyan.blogspot.co.id
+db_version: 1
+custom_url: null
+show_admin_menu: true
+menu_position: 10
+parent_menu: "49:Commerce:dollar"
+sub_menu:
+  10:
+    submodule: product
+    url: admin/product
+    icon: gift
+    caption: Products
+    menu_permission: product
+setting: 
+  enable:
+   field: enable
+   label: Enable Product Feature
+   default: 1
+   form: dropdown
+   options:
+    off: Off
+    on: On
+  remind_expired:
+    field: remind_expired
+    label: Remind Expired
+    desc: Interval waktu mengingatkan orang udh mau expired (Dalam Hari)
+    default: 3
+    form: number
+privileges:
+  - product
+  - product/add
+  - product/insert
+  - product/edit
+  - product/update
+  - product/delete
+  - product/subscribers
+  - product/subscribers/expiry
+  - product/subscribers/detail
+  - product/subscribers/remove
+  - product/subscribers/publish

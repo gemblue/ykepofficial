@@ -1,0 +1,17 @@
+name: Feedback
+icon: comment
+description: Module feedback untuk Codepolitan, setiap yang mengikuti kursus bisa memberi rate dan komentar.
+db_version: 1
+custom_url: admin/feedback
+show_admin_menu: true
+menu_position: 41
+parent_menu: "45:Premium:flask"
+privileges:
+  - feedback
+  - feedback/add
+  - feedback/edit
+  - feedback/insert
+  - feedback/update
+  - feedback/delete
+  - feedback/mark
+  - feedback/remove

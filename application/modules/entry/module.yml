@@ -1,0 +1,12 @@
+name: Entries
+icon: copy
+description: Entry is the Mein CMS module for CRUD Scaffolding.
+author: Oriza
+author_url: null
+db_version: 0
+custom_url: admin/entry/config
+show_admin_menu: true
+menu_position: 20
+parent_menu: "110:Development:code"
+privileges:
+  - entry/config

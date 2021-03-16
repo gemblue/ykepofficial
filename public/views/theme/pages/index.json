@@ -1,0 +1,162 @@
+{
+    "packages": {
+        "title": "Packages",
+        "url": "packages"
+    },
+    "ebook": {
+        "title": "Ebook",
+        "url": "ebook",
+        "children": {
+            "be-fullstack-developer": {
+                "title": "Be fullstack developer",
+                "url": "ebook\/be-fullstack-developer"
+            }
+        }
+    },
+    "tnc": {
+        "title": "Tnc",
+        "url": "tnc"
+    },
+    "catalog": {
+        "title": "Catalog",
+        "url": "catalog"
+    },
+    "subscription": {
+        "title": "Subscription",
+        "url": "subscription"
+    },
+    "credit-to-bug-reporter": {
+        "title": "Credit to bug reporter",
+        "url": "credit-to-bug-reporter"
+    },
+    "contact": {
+        "title": "Contact",
+        "url": "contact"
+    },
+    "publikasi-event": {
+        "title": "Publikasi event",
+        "url": "publikasi-event"
+    },
+    "tag": {
+        "title": "Tag",
+        "url": "tag"
+    },
+    "changelog": {
+        "title": "Changelog",
+        "url": "changelog"
+    },
+    "event": {
+        "title": "Event",
+        "url": "event"
+    },
+    "about": {
+        "title": "About",
+        "url": "about"
+    },
+    "how-to-learn": {
+        "title": "How to learn",
+        "url": "how-to-learn"
+    },
+    "articles": {
+        "title": "Articles",
+        "url": "articles"
+    },
+    "panduan-penulisan-artikel": {
+        "title": "Panduan penulisan artikel",
+        "url": "panduan-penulisan-artikel"
+    },
+    "search": {
+        "title": "Search",
+        "url": "search"
+    },
+    "purchase-history": {
+        "title": "Purchase history",
+        "url": "purchase-history"
+    },
+    "learn": {
+        "title": "Learn",
+        "url": "learn",
+        "children": {
+            "belajar-dasar-html-dan-css": {
+                "title": "Belajar dasar html dan css",
+                "url": "learn\/belajar-dasar-html-dan-css"
+            },
+            "basic-front-end-web-development": {
+                "title": "Basic front end web development",
+                "url": "learn\/basic-front-end-web-development"
+            },
+            "menguasai-framework-codeigniter": {
+                "title": "Menguasai framework codeigniter",
+                "url": "learn\/menguasai-framework-codeigniter"
+            },
+            "menjadi-web-programmer": {
+                "title": "Menjadi web programmer",
+                "url": "learn\/menjadi-web-programmer"
+            },
+            "menjadi-fullstack-php-web-developer": {
+                "title": "Menjadi fullstack php web developer",
+                "url": "learn\/menjadi-fullstack-php-web-developer"
+            },
+            "belajar-pemrograman-php": {
+                "title": "Belajar pemrograman php",
+                "url": "learn\/belajar-pemrograman-php"
+            },
+            "mengenal-pemrograman-komputer": {
+                "title": "Mengenal pemrograman komputer",
+                "url": "learn\/mengenal-pemrograman-komputer"
+            },
+            "membangun-aplikasi-mobile-pemesanan-tiket-online": {
+                "title": "Membangun aplikasi mobile pemesanan tiket online",
+                "url": "learn\/membangun-aplikasi-mobile-pemesanan-tiket-online"
+            },
+            "belajar-cepat-membuat-web-app-berbasis-react": {
+                "title": "Belajar cepat membuat web app berbasis react",
+                "url": "learn\/belajar-cepat-membuat-web-app-berbasis-react"
+            },
+            "11-hari-membangun-web-penjualan-online": {
+                "title": "11 hari membangun web penjualan online",
+                "url": "learn\/11-hari-membangun-web-penjualan-online"
+            }
+        }
+    },
+    "faq": {
+        "title": "Faq",
+        "url": "faq"
+    },
+    "home": {
+        "title": "Home",
+        "url": "home"
+    },
+    "interactive-coding": {
+        "title": "Interactive coding",
+        "url": "interactive-coding"
+    },
+    "sample": {
+        "title": "Sample",
+        "url": "sample"
+    },
+    "privacy-policy": {
+        "title": "Privacy policy",
+        "url": "privacy-policy"
+    },
+    "path": {
+        "title": "Path",
+        "url": "path"
+    },
+    "finish": {
+        "title": "Finish",
+        "url": "finish"
+    },
+    "category": {
+        "title": "Category",
+        "url": "category"
+    },
+    "markdown-guide": {
+        "title": "Markdown guide",
+        "url": "markdown-guide"
+    },
+    "feedback": {
+        "title": "Feedback",
+        "url": "feedback"
+    }
+}

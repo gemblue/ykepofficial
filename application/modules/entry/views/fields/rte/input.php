@@ -1,0 +1,1 @@
+<textarea id="<?php echo $config['field'];?>" class="form-control summernote" name="<?php echo $config['field'];?>"><?php echo $value;?></textarea>

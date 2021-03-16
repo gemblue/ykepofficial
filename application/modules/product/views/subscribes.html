@@ -1,0 +1,82 @@
+<style>
+.paket-premium1{background-color:#00ccbc}.paket-premium6{background-color:#46A6F7}.paket-premium12{background-color:#47887E}.paket-lifetime{background-color:#F59B24}.paket-kolektif{background-color:#ff6167}.db-padding-btm{padding-bottom:50px}.db-button-color-square{color:#fff;background-color:rgba(0,0,0,.5);border:none;border-radius:0;-webkit-border-radius:0;-moz-border-radius:0}.db-button-color-square:hover{color:#fff;background-color:rgba(0,0,0,.5);border:none}.db-pricing-eleven{margin-bottom:30px;margin-top:50px;text-align:center;box-shadow:0 0 5px rgba(0,0,0,.5);color:#fff;line-height:30px}.db-pricing-eleven ul{list-style:none;margin:0;text-align:center;padding-left:0}.db-pricing-eleven ul li{padding-top:20px;padding-bottom:20px;cursor:pointer}.db-pricing-eleven ul li i{margin-right:5px}.db-pricing-eleven .price{background-color:rgba(0,0,0,.5);padding:40px 20px 20px;font-size:40px;font-weight:900;color:#FFF;line-height: 32px;}.db-pricing-eleven .price del{color: rgba(200,200,200,.5);}.db-pricing-eleven .price small{color:#B8B8B8;display:block;font-size:22px;margin-top:22px}.db-pricing-eleven .type{background-color: #eee;
+    padding: 30px 20px 10px;
+    line-height: 20px;
+    font-size: 16px;
+    color: #777;
+    min-height: 180px;}.db-pricing-eleven .pricing-footer{padding:20px}.db-attached>.col-lg-3,.db-attached>.col-lg-4,.db-attached>.col-md-3,.db-attached>.col-md-4,.db-attached>.col-sm-3,.db-attached>.col-sm-4{padding-left:0;padding-right:0}.db-pricing-eleven.popular{margin-top:10px}.db-pricing-eleven.popular .price{padding-top:80px}
+</style>
+
+<form id="payment-form" method="post" action="<?=site_url('payment/finish')?>">
+	<input type="hidden" name="result_type" id="result-type" value=""></div>
+	<input type="hidden" name="result_data" id="result-data" value=""></div>
+</form>
+
+<section>
+    <div class="container">
+    	<h1 class="mt-0 mb-5 text-center">Paket Berlangganan</h1>
+
+        <div class="row pt-5 justify-content-center">
+            <?php foreach ($products as $product): ?>
+            <div class="col-md-4">
+                <div class="pricing pricing-1 boxed boxed--lg boxed--border">
+                    <h3><?= $product['product_name']; ?></h3> 
+                    <del>Rp <?= number_format($product['normal_price'], 0,',','.'); ?></del>
+                    <span class="h2"><strong>Rp <?= number_format($product['retail_price'], 0,',','.'); ?></strong></span> 
+                    <!-- <span class="type--fine-print">Berlaku selama 1 bulan</span> -->
+                    <hr>
+                    <p class="pb-5 mb-5"><?= $product['product_desc']; ?></p>
+                    <a class="btn btn--primary subscribeButton" href="#" data-product-id="<?= $product['id']; ?>"> <span class="btn__text">Purchase Plan</span> </a>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+
+<section class="bg--secondary">
+    <h2 class="text-center h1 mb-5">Paket Kolektif</h2>
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-lg-8 col-md-6">
+                <div class="row">
+                    <div class="col-lg-5 col-md-6">
+                        <div class="feature feature-6 mb-5"> <i class="icon icon--sm icon-Preview color--primary"></i>
+                            <h5>Showcase Products</h5>
+                            <p> Give your products the presentation they deserve with Stack's uniquely presents e-commerce styling. </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6">
+                        <div class="feature feature-6 mb-5"> <i class="icon icon--sm icon-Road-3 color--primary"></i>
+                            <h5>Launch Quickly</h5>
+                            <p> Forget handling cumbersome mockups. Get building immediately in the comfort of your browser. </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6">
+                        <div class="feature feature-6 mb-5"> <i class="icon icon--sm icon-Pen color--primary"></i>
+                            <h5>Engage Users</h5>
+                            <p> Stack's diverse blog styles make your written-content shine and your user's smile </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6">
+                        <div class="feature feature-6 mb-5"> <i class="icon icon--sm icon-Post-Mail2 color--primary"></i>
+                            <h5>Collect Leads</h5>
+                            <p> Stack comes with integration for Mail Chimp and Campaign Monitor forms - ideal for launching modern marketing campaigns </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 col-12">
+                <div class="pricing pricing-1 boxed boxed--lg boxed--border">
+                    <h3>Paket Kolektif</h3> 
+                    <del>Rp 400.000</del>
+                    <span class="h2"><strong>Rp <?= number_format($product['retail_price'], 0,',','.'); ?></strong></span> 
+                    <!-- <span class="type--fine-print">Berlaku selama 1 bulan</span> -->
+                    <hr>
+                    <p class="pb-5 mb-5">Dapatkan biaya investasi khusus untuk akses kolektif bagi karyawan atau mahasiswa di kampusmu.</p>
+                    <a class="btn btn--primary subscribeButton" href="#" data-product-id="<?= $product['id']; ?>"> <span class="btn__text">Kontak Kami</span> </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,1 @@
+<textarea id="<?php echo $config['field'];?>" class="form-control" name="<?php echo $config['field'];?>" placeholder="<?= $config['placeholder'] ?? '';?>" <?= $config['attr'] ?? '';?>><?php echo $value;?></textarea>

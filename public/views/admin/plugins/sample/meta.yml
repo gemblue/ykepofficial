@@ -1,0 +1,24 @@
+name: Igo Pages
+icon: heart
+description: Sample custom admin page
+author: Toni Haryanto (MeinCMS Team)
+author_url: null
+custom_url: null
+show_admin_menu: false
+menu_position: 100
+parent_menu: "20:Contents:file"
+privileges:
+  - page/sample
+setting:
+  enable:
+   field: enable
+   label: Enable Sample
+   default: 1
+   form: dropdown
+   options:
+    off: Off
+    on: On
+  title:
+   field: title
+   label: Sample Title
+   form: text

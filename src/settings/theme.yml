@@ -1,0 +1,73 @@
+name: Theme
+setting:
+  admin_logo_bg:
+    field: admin_logo_bg
+    label: Admin Logo Background
+    form: text
+    default: 333333
+  navbar_color:
+    field: navbar_color
+    label: Navbar Color
+    form: text
+    default: FFFFFF
+  navbar_text_color:
+    field: navbar_text_color
+    label: Navbar Text Color
+    form: text
+    default: 333333
+  link_color:
+    field: link_color
+    label: Link Color
+    form: text
+    default: E84A94
+  btn_primary:
+    field: btn_primary
+    label: Button Primary Color
+    form: text
+    default: 007BFF
+  btn_secondary:
+    field: btn_secondary
+    label: Button Secondary Color
+    form: text
+    default: 6C757D
+  btn_success:
+    field: btn_success
+    label: Button Success Color
+    form: text
+    default: 28A745
+  btn_info:
+    field: btn_info
+    label: Button Info Color
+    form: text
+    default: 138496
+  btn_warning:
+    field: btn_warning
+    label: Button Warning Color
+    form: text
+    default: E0A800
+  btn_danger:
+    field: btn_danger
+    label: Button Danger Color
+    form: text
+    default: DC3545
+  admin_color:
+    field: admin_color
+    label: Site Admin Color Theme
+    form: dropdown
+    options:
+      blue: Blue
+      green: Green
+      orange: Orange
+      purple: Purple
+      red: Red
+      seagreen: Seagreen
+      pink: Pink
+  facebook_pixel_code:
+    field: facebook_pixel_code
+    label: Facebook Pixel Code
+    desc: wajib pake &lt;script n:syntax="off"&gt;
+    form: textarea
+  gtag_id:
+    field: gtag_id
+    label: Google Tag ID
+    form: text

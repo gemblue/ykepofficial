@@ -1,0 +1,25 @@
+{layout '../layouts/basic.html'}
+
+{block content}
+
+<section class="bg--secondary">
+	<div class="container">
+		<div class="row justify-content-md-center">
+			<div class="col-md-5 col-md-offset-4">
+				<div class="p-5 bg--white border-radius">
+		            <h1 class="mt-0 mb-4 text-center">Konfirmasi Akun</h1>
+
+		            <p>Anda akan mengaktifkan akun {$user['email']} dengan nama {$user['name']}. Untuk melanjutkan, konfirmasikan dengan menekan tombol berikut:</p>
+
+					<div class="my-4 text-center">
+						<a href="{site_url('user/activate?token=' . $token)}" class="btn btn-primary btn-lg">Konfirmasi</a>
+					</div>
+
+					<div>Belum pernah mendaftar? <a href="{site_url('user/register')}">Registrasi disini</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{/block}

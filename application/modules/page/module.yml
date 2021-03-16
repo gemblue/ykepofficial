@@ -1,0 +1,19 @@
+name: Pages
+icon: file
+description: Pages management
+author: Toni Haryanto (MeinCMS Team)
+author_url: "http://toharyan.blogspot.co.id"
+db_version: 0
+custom_url: null
+show_admin_menu: false
+menu_position: 10
+parent_menu: "20:Contents:file"
+custom_menu: null
+privileges:
+  - pages
+  - pages/sync
+  - pages/create
+  - pages/edit
+  - pages/delete
+  - pages/builder
+  - pages/builder/savePage

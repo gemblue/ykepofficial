@@ -1,0 +1,349 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.32.2/sweetalert2.min.css">
+
+<style>
+.navigation-wrapper a {font-size:12px;}
+textarea {resize: none;}
+h1, h2, h3, h4, h5, h6 {font-size:1em;}
+.comment-list-area a {
+    color: #5bc0be;
+}
+.text-gray {
+    color: #aaaaaa;
+}
+a.link-text-dark {
+    color: #454545;
+}
+a.open-comment {
+    font-size:14px;
+    font-weight:600;
+}
+.comments {
+    color: #808080;
+}
+
+img.avatar.small {
+	object-fit: cover;
+	border-radius: 50%;
+	height: 50px;
+	width: 50px;
+}
+
+img.avatar.medium {
+	object-fit: cover;
+	border-radius: 50%;
+	height: 60px;
+	width: 60px;
+}
+
+img.avatar.large {
+	object-fit: cover;
+	border-radius: 50%;
+	height: 80px;
+	width: 80px;
+}
+</style>
+
+<!-- FORM ANSWER -->
+<div class="comments">
+<h3>Kirim Komentar</h3>
+<div class="mt-3">
+    {flashdata('message')|noescape}
+    {form_open(site_url('comment/reply/insert'), 'method="post" class="mt-0" id="form-reply"')|noescape}
+        <input type="hidden" name="identity" value="{identity}"/>
+        <input type="hidden" name="subject" value="{subject}"/>
+        <input type="hidden" name="slug" value="{slug}"/>
+        <div class="form-group">
+            <textarea id="#" name="reply_content" class="form-control" rows="2" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <button type="submit" class="btn btn-info btn--lg">KIRIM KOMENTAR</button>
+            </div>
+            <div class="col-6">
+                {if (l('ci_auth.isLoggedIn'))}
+                    <div class="text-right">
+                        {if in_room}
+                        <button class="btn-subscribe btn btn-light"><span class="fa fa-check"></span> Subscribed</button>
+                        {else}
+                        <button class="btn-subscribe btn"><span class="fa fa-eye"></span> Subscribe</button>
+                        {/if}
+                    </div>
+                {/if}
+            </div>
+        </div>
+    </form>
+</div>
+<hr>
+<!-- END: FORM ANSWER -->
+
+<!-- LIST ANSWER -->
+{if replies}
+    <div class="comment-list-area">
+        <h3 class="h4 mt-0 mb-4 type--bold">{total} Komentar</h3>
+        
+        <!-- START LIST -->
+        {foreach reply in replies} 
+            <div id="reply-{reply.id}">
+                
+                <div class="row">
+                    <div class="col-md-11">
+
+                        <div class="media mt-2 pb-2">
+                            <a href="{site_url('user/profile/' ~ reply.user.username)}" class="link-text-dark"><img class="mr-4 avatar small" width="80" src="{library('ci_auth.getProfilePicture', [reply.user.avatar, reply.user.email])}" alt="User avatar"></a>
+                            <div class="media-body" style="max-width:100%">
+                                
+                                <div class="mb-3 navigation-wrapper">
+                                    <small class="text-gray">
+                                        Dikomentari {time_ago(reply.created_at)} oleh <a href="{site_url('coder/' ~ reply.user.username)}" class="link-text-dark"><strong>{(reply.user.name) ? reply.user.name : reply.optional_name}</strong></a>
+                                    </small>
+                                    <a href="#" class="ml-3 mr-3 type--uppercase btn-edit-reply" data-id="{reply.id}"><span class="fa fa-pencil mr-1"></span>EDIT</a>
+                                    <a href="{site_url('comment/reply/remove/?reply_id=' ~ reply.id ~ '&identity=' ~ identity)}" class="mr-2 type--uppercase" onclick="return confirm('Serius ingin dihapus?')"><span class="fa fa-trash mr-1"></span>HAPUS</a>
+                                </div>
+
+                                <div class="reply-wrapper-{reply.id} pb-3">
+                                    {parsedown(reply.reply_content)|xss_clean|striptags|noescape}
+                                </div>
+
+                                <div style="display:none;" class="form-reply-{reply.id}">
+                                    <textarea class="form-control input-reply-{reply.id}" rows="3" onkeyup="textAreaAdjust(this)" style="overflow:hidden">{reply.reply_content|xss_clean}</textarea>
+                                    <div class="mt-2 mb-3">
+                                        <button class="btn btn-info btn-sm btn-save-reply" data-id="{reply.id}">SIMPAN</button>
+                                        <button class="btn btn-cancel-reply" data-id="{reply.id}">BATALKAN</button>
+                                    </div>
+                                </div>
+
+                                <!-- COMMENTAR AT ANSWER -->
+                                {% set comments = s('comment.getComments', {'reply_id':reply.id})}
+                                
+                                {if comments}
+                                    {foreach comment in comments}
+                                        <div class="media mb-4">
+                                            <a href="{site_url('coder/' ~ comment.user.username)}"><img class="mr-3 avatar small" width="50" src="{library('ci_auth.getProfilePicture', [comment.user.avatar, comment.user.email])}" alt="Comment .."></a>
+                                            <div class="media-body">
+                                                <div class="comment-content comment-wrapper-{comment.id}">
+                                                    {comment.comment_content|xss_clean|striptags|noescape}
+                                                </div>
+
+                                                <div style="display:none;" class="form-comment-{comment.id}">
+                                                    <div class="form-group">
+                                                        <textarea class="form-control input-comment-{comment.id}" rows="3" onkeyup="textAreaAdjust(this)" style="overflow:hidden">{comment.comment_content|xss_clean}</textarea>
+                                                        <div class="mt-2 mb-3">
+                                                            <button class="btn btn-info btn-sm btn-save-comment" data-id="{comment.id}">SIMPAN</button>
+                                                            <button class="btn btn--primary-2 btn-cancel-comment" data-id="{comment.id}">BATALKAN</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="mb-2 navigation-wrapper">
+                                                    <small class="text-gray">
+                                                        Dikomentari {time_ago(comment.created_at)} oleh <a href="{site_url('coder/' ~ comment.user.username)}" class="link-text-dark"><strong>{(comment.user.name) ? comment.user.name : comment.optional_name}</strong></a>
+                                                    </small>
+                                                    
+                                                    <small>
+                                                        <a href="#" class="btn-edit-comment mr-3 ml-3 type--uppercase" data-id="{comment.id}"><span class="fa fa-pencil mr-1"></span>EDIT</a>
+                                                        <a href="#" class="btn-remove-comment mr-2 type--uppercase" data-id="{comment.id}"><span class="fa fa-trash mr-1"></span>HAPUS</a>
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>    
+                                    {/foreach}
+                                {/if}
+                                <!-- END: COMMENTAR AT ANSWER -->
+
+                                <a class="open-comment" href="#reply-form-comment-{reply.id}"><u>KIRIM KOMENTAR</u></a>
+                                <div class="comment-collapse mt-2" style="display:none" id="reply-form-comment-{reply.id}">
+                                    <textarea class="mb-3 form-control comment_content_{reply.id}" cols="30" rows="2" onkeyup="textAreaAdjust(this)" style="overflow:hidden"></textarea>
+                                    <button type="button" class="btn btn-info btn-sm pl-3 pr-3 btn-comment type--uppercase" data-reply-id="{reply.id}">KIRIM KOMENTAR</button>
+                                </div>
+                            </div>
+                        
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <hr />
+
+        {/foreach}
+        <!-- END: START LIST -->
+        
+    </div>
+{/if}
+<!-- END: LIST ANSWER -->
+</div>
+
+<!-- Bridge -->
+<input type="hidden" id="subject" value="{subject}" />
+<input type="hidden" id="slug" value="{slug}" />
+<input type="hidden" id="identity" value="{identity}" />
+<input type="hidden" id="base_url" value="{base_url()}" />
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.32.2/sweetalert2.min.js"></script>
+
+<script>
+function textAreaAdjust(o) {
+  o.style.height = "1px";
+  o.style.height = (25+o.scrollHeight)+"px";
+  updateIframeHeight();
+}
+function updateIframeHeight(){
+    let height = $('.comments').height();
+    console.log(height);
+    window.top.postMessage(height, "{site_url|trim('/')}");
+}
+updateIframeHeight();
+
+$(document).ready(function(){
+    var base_url = $('#base_url').val();
+	var identity = $('#identity').val();
+    var subject = $('#subject').val();
+    var slug = $('#slug').val();
+    
+    $('.btn-subscribe').click(function(){
+        
+        $.post( base_url + "comment/comment/subscribe", { identity: identity })
+		.done(function( data ) {
+            if (data.in_room == false) {
+                $('.btn-subscribe').html('<span class="fa fa-eye"></span> Subscribe').removeClass('btn-light');
+            } else {
+                $('.btn-subscribe').html('<span class="fa fa-check"></span> Subscribed').addClass('btn-light');
+            }
+        });
+
+        return false;
+    });
+
+    $('.btn-edit-reply').click(function(){
+		var id = $(this).attr('data-id');
+		var output;
+		
+		$('.reply-wrapper-' + id).hide();
+		$('.form-reply-' + id).show();
+		
+		return false;
+	});
+
+    $('.btn-save-reply').click(function(){
+        
+        var id = $(this).attr('data-id');
+		var reply_content = $('.input-reply-' + id).val();
+		
+        $.post( base_url + "comment/reply/update", { id: id, reply_content: reply_content })
+		.done(function( data ) {
+            
+            if (data.status == 'failed')
+			{
+				alert(data.message);
+			}
+			else
+			{
+				$('.form-reply-' + id).hide();
+				$('.reply-wrapper-' + id).html('<p>'+ reply_content +'</p>');
+				$('.reply-wrapper-' + id).show();
+			}
+		});
+		
+		return false;
+	});
+
+	$('.btn-save-comment').click(function(){
+		var id = $(this).attr('data-id');
+		var comment_content = $('.input-comment-' + id).val();
+		
+		$.post( base_url + "comment/comment/update", { id: id, comment_content: comment_content })
+		.done(function( data ) {
+			if (data.status == 'failed')
+			{
+				alert(data.message);
+			}
+			else
+			{
+				$('.form-comment-' + id).hide();
+				$('.comment-wrapper-' + id).html('<p>'+ comment_content +'</p>');
+				$('.comment-wrapper-' + id).show();
+			}
+		});
+		
+		return false;
+	});
+
+	$('.btn-remove-comment').click(function(){
+		if (confirm('Yakin akan menghapus komentar ini?'))
+		{
+			var id = $(this).attr('data-id');
+			
+			$.post( base_url + "comment/comment/remove", { id: id })
+			.done(function( data ) {
+				if (data.status == 'failed')
+				{
+					alert(data.message);
+				}
+				else
+				{
+					$('.form-comment-' + id).hide();
+					$('.comment-wrapper-' + id).closest('.media').slideUp();
+					$('.comment-wrapper-' + id).show();
+				}
+			});
+		}
+
+		return false;
+	});
+
+	$('.btn-cancel-comment').click(function(){
+		var id = $(this).attr('data-id');
+
+		$('.comment-wrapper-' + id).show();
+		$('.form-comment-' + id).hide();
+		
+		return false;
+	});
+
+	$('.btn-edit-comment').click(function(){
+		var id = $(this).attr('data-id');
+		var output;
+		
+		$('.comment-wrapper-' + id).hide();
+		$('.form-comment-' + id).show();
+		
+		return false;
+	});
+
+	$('.btn-comment').click(function(){
+        
+        var reply_id = $(this).attr('data-reply-id');
+		var comment_content = $('.comment_content_' + reply_id).val();
+        
+		$.post( base_url + "comment/comment/insert", { identity: identity, subject: subject, slug: slug, comment_content: comment_content, reply_id: reply_id })
+		.done(function( data ) {
+            
+			if (data.status == 'failed')
+            {
+			    Swal({
+                    html: data.message
+                })
+            }
+            else
+            {
+				location.reload();
+            }
+        });
+		
+		return false;
+	});
+    
+    $('.open-comment').on('click', function () {
+        $('.comment-collapse').hide();
+        $(this).next('.comment-collapse').toggle();
+        updateIframeHeight();
+        return false;
+    })
+});
+</script>

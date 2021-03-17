@@ -291,7 +291,9 @@ class Post extends Backend_Controller {
 		$this->Post_model->publish($post_id);
 
 		// Send FCM notification
-		$this->sendFcmNotification($post_id);
+		if ($_ENV['FCM'] == true) {
+			$this->sendFcmNotification($post_id);
+		}
 		
 		$this->session->set_flashdata('message', $this->lang->line('mein_success_global'));
         

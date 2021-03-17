@@ -1,5 +1,13 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * Post API
+ * 
+ * Post API provider.
+ * 
+ * @author Toni, Gemblue
+ */
+
 class Post extends REST_Controller 
 {
 	public function __construct()
@@ -7,9 +15,13 @@ class Post extends REST_Controller
 		parent::__construct();
 	}
 
+	/**
+	 * Show all articles.
+	 * 
+	 * @return mixed
+	 */
 	public function index()
 	{
-
 		$this->load->model('post/Taxonomy_model');
 		$this->load->model('post/Post_model');
         

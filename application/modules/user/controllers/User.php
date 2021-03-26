@@ -118,8 +118,9 @@ class User extends MY_Controller {
         {
             $this->session->set_flashdata('message', $login['message']);
 
-            if (!empty($callback))
+            if (!empty($callback)) {
                 redirect('user/login?callback=' . $callback);
+            }
 
             redirect('user/login');
         }
@@ -130,9 +131,11 @@ class User extends MY_Controller {
         }
         
         // Callback?
-        if (!empty($callback)) redirect($callback);
+        if (!empty($callback)) {
+            redirect($callback);
+        }
         
-        redirect('user/dashboard');
+        redirect('admin');
     }
 
     /**

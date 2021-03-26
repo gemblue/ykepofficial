@@ -1,0 +1,21 @@
+name: Question Box
+description: Pertanyaan masuk
+icon: question
+table: question_box
+show_admin_menu: true
+parent_menu: "30:Entries:list-alt"
+show_on_table: [category, message]
+menu_position: 60
+fields:
+  category:
+    field: category
+    label: Category
+    form: text
+    datalist: true
+    rules: required
+  message:
+    field: message
+    label: Message
+    form: text
+    datalist: true
+    rules: required

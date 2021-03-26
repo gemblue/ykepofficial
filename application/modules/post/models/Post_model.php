@@ -40,11 +40,12 @@ class Post_model extends CI_Model
     
     public function getPosts($type = 'all', $result = 'total', $status = 'all', $limit = 10, $offset = 0, $orderby = 'created_at', $sort = 'desc', $resultType = 'stdClass', $user = 'all')
 	{
-		if ($result == 'total')
+		if ($result == 'total') {
 			$this->db->select($this->posts.'.id');
-		else
+        } else {
 			$this->db->select('title, intro, featured_image, embed_video, author, featured, slug,' . $this->posts . '.id as id,' . $this->posts . '.status as status,' . $this->posts . '.created_at as created_at,' . $this->posts . '.published_at as published_at');
-		
+        }
+        
 		$this->db->from($this->posts);
 		$this->db->join($this->users, $this->users.'.id'.'='.$this->posts.'.author');
         
@@ -69,10 +70,11 @@ class Post_model extends CI_Model
 		$this->db->order_by($this->posts . '.'.$orderby, $sort);
 		$this->db->limit($limit, $offset);
         
-        if ($resultType == 'stdClass')
+        if ($resultType == 'stdClass') {
 		    return $this->db->get()->result();
-        else
+        } else {
             return $this->db->get()->result_array();
+        }
     }
 
     public function getEvents($filter = null, $result = 'total', $status = 'all', $limit = 10, $offset = 0, $orderby = 'created_at', $sort = 'desc', $resultType = 'stdClass', $user = 'all')

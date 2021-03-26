@@ -6,7 +6,7 @@
  * Segala endpoint API terkait entry
  */
 
-class Entry extends REST_Controller 
+class Services extends REST_Controller 
 {
 	public function __construct()
 	{
@@ -25,10 +25,7 @@ class Entry extends REST_Controller
         $this->entryConf = config_item('entries')[$this->entry] ?? false;
         $this->Entrydata_model = setup_entry_model($this->entry);
         $this->Entrydata_model->soft_deletes = true;
-
-        // Check JWT
-        //$this->user = $this->checkToken();
-	}
+    }
 
     /**
      * Show all entry
@@ -62,7 +59,6 @@ class Entry extends REST_Controller
         $uri        = 'api/entry/' . $entry . '/';
         $total_rows = $this->Entrydata_model
                             ->setFilter()
-                            ->where('owner', $this->user->user_id)
                             ->count_rows();
 
         // Join model table
@@ -72,8 +68,6 @@ class Entry extends REST_Controller
                 $this->Entrydata_model->$withFunction($opt['filter'] .'|'.$opt['fields']);
             }
         }
-
-        $this->Entrydata_model->where('owner', $this->user->user_id);
 
         // Get data, pagination and field list
         $this->Entrydata_model->setFilter()->order_by($order_by, $order_direction);
@@ -103,7 +97,7 @@ class Entry extends REST_Controller
      */
     public function insert($entry)
     {
-        $_POST['owner'] = $this->user->user_id;
+        $_POST['owner'] = 0;
         
         if ($result = $this->Entry_model->insert($entry))
         {

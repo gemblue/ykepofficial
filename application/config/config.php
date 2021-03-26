@@ -463,6 +463,7 @@ $config['csrf_exclude_uris'] = array(
     'payment/mid/catchNotification',
     'payment/xen/catchNotification',
     'bot/[0-9a-zA-Z/?&~%.:_\-]+',
+    'entry/services/[0-9a-zA-Z/?&~%.:_\-]+',
     'interactive-coding/course/runner',
     'forum/comment/insert',
     'forum/comment/update',

@@ -1,0 +1,33 @@
+name: Video Gallery
+description: Berbagai video kegiatan Ykep
+icon: video-camera
+table: video
+show_admin_menu: true
+parent_menu: "30:Entries:list-alt"
+show_on_table: [title, description, cover, youtube_id]
+menu_position: 70
+fields:
+  title:
+    field: title
+    label: Title
+    form: text
+    datalist: true
+    rules: required
+  description:
+    field: description
+    label: Description
+    form: textarea
+    datalist: true
+    rules: required
+  cover:
+    field: cover
+    label: Cover
+    form: file
+    datalist: true
+    rules: required
+  youtube_id:
+    field: youtube_id
+    label: Youtube ID
+    form: text
+    datalist: true
+    rules: required

@@ -124,9 +124,15 @@ input.title {
                     </div>
                 </div>
                 <div class="form-group mb-3">
-                    <label>Embed Video</label>
+                    <label>PDF</label>
                     <div class="input-group mb-3">
-                        <input type="text" id="embed_video" name="embed_video" class="form-control" placeholder="Youtube Video ID, i.e. T5y7tpkyDuY" value="<?php echo (isset($result->embed_video)) ? $result->embed_video : $this->session->flashdata('embed_video');?>">
+                        <input type="text" id="pdf" name="pdf" class="form-control" placeholder="Link to PDF" value="<?php echo (isset($result->pdf)) ? $result->pdf : $this->session->flashdata('pdf');?>">
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label>Redirect Link</label>
+                    <div class="input-group mb-3">
+                        <input type="text" id="redirect_link" name="redirect_link" class="form-control" placeholder="Redirect Link" value="<?php echo (isset($result->redirect_link)) ? $result->redirect_link : $this->session->flashdata('redirect_link');?>">
                     </div>
                 </div>
          		<div class="form-group">
@@ -289,11 +295,6 @@ window.onbeforeunload = function() {
 
 $(function() {
     $('#tags').tagsInput();
-    // $('#tags').tagsInput({
-    //     'onChange': function(){
-    //         formChanged = true;
-    //     }
-    // });
     
     // Check if form changed
     $("form :input").change(function() {
@@ -318,6 +319,8 @@ $('#post-form').submit(function(e){
     let mode = $('#mode').val();
     $.post( base_url + 'admin/post/' + mode, postArray)
     .done(function( response ) { 
+
+        console.log(response);
         
         $('.btn-save').html('Save');
         

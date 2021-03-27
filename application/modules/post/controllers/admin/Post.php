@@ -108,15 +108,13 @@ class Post extends Backend_Controller {
 	{
         $post = $this->input->post();
 
-		// $old = $this->Post_model->getPost(null, 'id', $post['post_id'], 'array');
-
         $data = [
             'category_id' => $post['category_id'] ?? null,
-			// 'status' => $post['status'],
 			'post_type' => $post['post_type'],
             'title' => $post['title'],
             'featured_image' => $post['featured_image'],
-            'embed_video' => $post['embed_video'],
+            'pdf' => $post['pdf'],
+            'redirect_link' => $post['redirect_link'],
             'template' => $post['template'],
 			'content' => $post['content'],
 			'content_type' => $post['content_type'] ?? 'markdown',
@@ -126,21 +124,18 @@ class Post extends Backend_Controller {
 			'featured' => $post['featured']
         ];
 
-        // if($old['status'] == 'draft' && $post['status'] = 'publish')
-	       //  $data['published_at'] = date('y-m-d h:i:s');
-
         $update = $this->Post_model->update($post['post_id'], $data);
 
 	    // Save post meta if exist
-        if ($post['meta'] ?? null)
+        if ($post['meta'] ?? null) {
             $this->Post_model->updateMeta($post['post_type'], $post['post_id'], $post['meta']);
-        
+		}
+
         if ($update['status'] == 'failed') {
             
             header('Content-Type: application/json');
             echo json_encode(['status' => 'failed', 'message' => $update['message']]);
             exit;
-
         }
 
         header('Content-Type: application/json');
@@ -154,11 +149,11 @@ class Post extends Backend_Controller {
 		
 		$insert = $this->Post_model->insert([
 			'category_id' => $post['category_id'] ?? null,
-			// 'status' => $post['status'],
 			'post_type' => $post['post_type'] ?? 'post',
             'title' => $post['title'],
             'featured_image' => $post['featured_image'],
-            'embed_video' => $post['embed_video'],
+            'pdf' => $post['pdf'],
+            'redirect_link' => $post['redirect_link'],
             'template' => $post['template'],
 			'content' => $post['content'],
 			'content_type' => $post['content_type'] ?? 'markdown',

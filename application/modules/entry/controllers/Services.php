@@ -30,29 +30,13 @@ class Services extends REST_Controller
     /**
      * Show all entry
      */
-	public function index($entry)
+	public function index($entry = null)
 	{
         $pagenum = $this->input->get('pagenum') ?? 1;
 		$order_by = $this->input->get('orderby') ?? 'id';
 		$order_direction = $this->input->get('direction') ?? 'asc';
 		$where_in_by_join = [];
         $exclude_filter = [];
-
-        // Join model table
-        /*
-        if (!empty($this->Relation_model)) {
-            foreach ($this->Relation_model as $relation_entry => $opt) {
-                $local_key = $opt['options']['local_key'];
-                $exclude_filter[] = $local_key;
-                $modelName = $opt['modelName'];
-                if($filter_value = $_GET['filter'][$local_key] ?? null){
-                    $filter_field = $this->entryConf['fields'][$local_key]['relation']['caption'];
-                    $result = $this->$modelName->like($filter_field, $filter_value)->get_all();
-                    foreach ($result as $value)
-                        $where_in_by_join[$local_key][] = $value['id'];
-                }
-            }
-        } */
 
         // Set config for pagination
         $perpage    = 10;

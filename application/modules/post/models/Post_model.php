@@ -43,7 +43,7 @@ class Post_model extends CI_Model
 		if ($result == 'total') {
 			$this->db->select($this->posts.'.id');
         } else {
-			$this->db->select('title, intro, featured_image, embed_video, author, featured, slug,' . $this->posts . '.id as id,' . $this->posts . '.status as status,' . $this->posts . '.created_at as created_at,' . $this->posts . '.published_at as published_at');
+			$this->db->select('title, intro, featured_image, pdf, redirect_link, author, featured, slug,' . $this->posts . '.id as id,' . $this->posts . '.status as status,' . $this->posts . '.created_at as created_at,' . $this->posts . '.published_at as published_at');
         }
         
 		$this->db->from($this->posts);
@@ -530,7 +530,6 @@ class Post_model extends CI_Model
         // Do validation.
         $this->form_validation->set_data($param);
         $this->form_validation->set_rules('title', 'Title', 'trim|required')
-                              // ->set_rules('status', 'Status', 'trim|required')
                               ->set_rules('post_type', 'Post Type', 'trim|required')
                               ->set_rules('content', 'Content', 'required')
                               ->set_rules('author', 'The author', 'trim|required')
@@ -550,7 +549,8 @@ class Post_model extends CI_Model
 			'title' => $param['title'],
 			'content' => $param['content'],
 			'featured_image' => $param['featured_image'],
-            'embed_video' => $param['embed_video'],
+            'pdf' => $param['pdf'],
+            'redirect_link' => $param['redirect_link'],
 			'author' => $param['author'],
 			'status' => 'draft',
 			'slug' => url_title($param['slug'], '-', true),
@@ -670,7 +670,8 @@ class Post_model extends CI_Model
 			'slug' => url_title($param['slug'], '-', true),
 			'title' => $param['title'],
             'featured_image' => $param['featured_image'],
-            'embed_video' => $param['embed_video'],
+            'pdf' => $param['pdf'],
+            'redirect_link' => $param['redirect_link'],
 			'content' => $param['content'],
 			'featured' => $param['featured']
         ];

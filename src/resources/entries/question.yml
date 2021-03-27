@@ -1,21 +1,60 @@
-name: Question Box
+name: Feedback
 description: Pertanyaan masuk
 icon: question
 table: question_box
 show_admin_menu: true
 parent_menu: "30:Entries:list-alt"
-show_on_table: [category, message]
+show_on_table: [name, email, phone, status, category, message]
 menu_position: 60
 fields:
+  name:
+    field: name
+    label: Nama
+    form: text
+    datalist: true
+    rules: required
+  email:
+    field: email
+    label: Email
+    form: text
+    datalist: true
+    rules: required
+  phone:
+    field: phone
+    label: Telepon
+    form: text
+    datalist: true
+    rules: required
+  status:
+    field: status
+    label: Status
+    description: Status Laporan
+    form: radio
+    default: pending
+    options:
+      pending:  Menunggu
+      accepted:  Diterima
+      declined:  Ditolak
   category:
     field: category
-    label: Category
+    label: Kategori
     form: text
     datalist: true
     rules: required
   message:
     field: message
-    label: Message
+    label: Pesan
     form: text
     datalist: true
     rules: required
+action_buttons:
+  row:
+    accept_request: 
+      caption: Terima Permintaan 
+      icon: check
+      condition: [status, 'pending']
+      confirm: true
+    decline_request: 
+      caption: Tolak Permintaan  
+      icon: times-circle-o
+      condition: [status, 'pending']

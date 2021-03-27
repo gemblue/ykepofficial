@@ -6,8 +6,7 @@ author_url: null
 db_version: 0
 custom_url: null
 show_admin_menu: true
-menu_position: 5
-parent_menu: "90:Configurations:cog"
+menu_position: 11
 sub_menu:
   10:
     submodule: user

@@ -68,7 +68,7 @@
 
 					if ($spec['extension']) {
 						
-						if (in_array(strtolower($spec['extension']), ['png', 'jpg', 'jpeg', 'gif'])) 
+						if (in_array(strtolower($spec['extension']), ['png', 'jpg', 'pdf', 'jpeg', 'gif'])) 
 						{
 							$originalImage = $fileManagerConfig['cdn_base_url'] . $file['Key'];
 							$thumbs = [];
@@ -83,12 +83,18 @@
 							<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
 								<div class="files-item text-center">
 
+									<?php if ($spec['extension'] != 'pdf') :?>
 									<a href="#" class="btn-detail" data-original="<?php echo $originalImage; ?>" file-name="<?php echo $file['Filename']; ?>" thumbs="<?= $thumbsString; ?>" title="show bigger">
 										<div class="overlay"><span class="glyphicon glyphicon-zoom-in"></span></div>
 									</a>
+									<?php endif; ?>
 
-									<div class="files-img" style="background-image: url(<?php echo $thumbs[$fileManagerConfig['thumbnail_versions'][0]]; ?>);"></div>
-
+									<?php if ($spec['extension'] == 'pdf') :?>
+										<div class="files-img" style="opacity:0.8;background-image: url(<?php echo base_url('uploads/pdf.png'); ?>);background-size: 60px 60px;"></div>
+									<?php else: ?>
+										<div class="files-img" style="background-image: url(<?php echo $thumbs[$fileManagerConfig['thumbnail_versions'][0]]; ?>);"></div>
+									<?php endif; ?>
+									
 									<h5><?php echo $file['Key'];?></h5>
 
 									<div class="files-options">

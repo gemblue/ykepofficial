@@ -8,7 +8,7 @@ $config['fileManagerConfig']['Local'] = [
 	'delete' 			 => true,
 	'upload_path' 		 => './uploads/',
 	'cdn_base_url' 		 => base_url('uploads/'),
-	'allowed_types'		 => 'jpg|png',
+	'allowed_types'		 => 'jpg|png|jpeg|pdf',
 ];
 
 $config['fileManagerConfig']['S3'] = [

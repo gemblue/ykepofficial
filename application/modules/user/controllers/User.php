@@ -127,7 +127,7 @@ class User extends MY_Controller {
 
         // Redirect to admin.
         if ($this->session->role_id == 1) {
-            redirect('admin');
+            redirect('admin/dashboard');
         }
         
         // Callback?
@@ -135,7 +135,7 @@ class User extends MY_Controller {
             redirect($callback);
         }
         
-        redirect('admin');
+        redirect('admin/dashboard');
     }
 
     /**

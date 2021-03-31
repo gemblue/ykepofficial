@@ -38,7 +38,12 @@ fields:
   category:
     field: category
     label: Kategori
-    form: text
+    form: dropdown
+    relation:
+      entry: question_category
+      caption: category
+      foreign_key: id
+      local_key: category
     datalist: true
     rules: required
   message:

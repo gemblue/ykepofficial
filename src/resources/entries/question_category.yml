@@ -1,0 +1,15 @@
+name: Category
+description: Kategorisasi pertanyaan masuk
+icon: exchange
+table: question_category
+show_admin_menu: true
+parent_menu: "30:Entries:list-alt"
+show_on_table: [category]
+menu_position: 61
+fields:
+  category:
+    field: category
+    label: Category
+    form: text
+    datalist: true
+    rules: required

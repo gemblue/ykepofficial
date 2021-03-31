@@ -4,7 +4,7 @@ $attributes = 'id="'.$config['field'].'" class="form-control"';
 
 if ($config['relation'] ?? null)
 {
-    $options[] = '-pilih opsi-';
+    $options[] = 'Pilih opsi ..';
     
     if(! ($config['load_after'] ?? null) || $value)
     {

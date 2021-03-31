@@ -90,7 +90,7 @@ class User extends MY_Controller {
             if($this->session->callback)
                 redirect($this->session->callback);
             else
-                redirect('user/dashboard');
+                redirect('admin/dashboard');
         }
 
         $this->shared['action_url'] = site_url('user/login_action');

@@ -1,0 +1,33 @@
+name: Photo Gallery
+description: Berbagai photo kegiatan Ykep
+icon: image
+table: photo
+show_admin_menu: true
+parent_menu: "30:Entries:list-alt"
+show_on_table: [title, description, thumbnail, picture]
+menu_position: 70
+fields:
+  title:
+    field: title
+    label: Title
+    form: text
+    datalist: true
+    rules: required
+  description:
+    field: description
+    label: Description
+    form: textarea
+    datalist: true
+    rules: required
+  thumbnail:
+    field: thumbnail
+    label: Thumbnail
+    form: file
+    datalist: true
+    rules: required
+  picture:
+    field: picture
+    label: Picture
+    form: file
+    datalist: true
+    rules: required

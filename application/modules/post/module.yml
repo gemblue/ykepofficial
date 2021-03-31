@@ -28,11 +28,11 @@ setting:
     form: textarea
     default: |
         page:
-            label: Pages
-            entry: mein_post_page
-        event:
-            label: Events
-            entry: mein_post_event
+          label: Pages
+          entry: mein_post_page
+        pdf:
+          label: PDF
+          entry: mein_post_pdf
 privileges:
     - post
     - post/index/all/:any

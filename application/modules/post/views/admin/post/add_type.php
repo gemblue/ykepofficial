@@ -1,4 +1,10 @@
-<h3><?php echo $page_title; ?></h3>
+<div class="mb-4">
+    <div class="row">
+        <div class="col-6">
+            <h2><?php echo $page_title;?></h2>
+        </div>
+    </div>
+</div>
 
 <?php echo $this->session->flashdata('message');?>
 

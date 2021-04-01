@@ -14,7 +14,9 @@ fields:
       l: Laki-laki
       p: Perempuan
     default: l
+    rules: required
   birthday:
     field: birthday
     label: Tanggal Lahir
     form: date
+    rules: required
